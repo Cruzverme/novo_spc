@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_155651) do
+ActiveRecord::Schema.define(version: 2019_10_09_161509) do
 
   create_table "billings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "number_titulo"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_10_09_155651) do
     t.boolean "status_billing"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "costumers_id"
+    t.index ["costumers_id"], name: "index_billings_on_costumers_id"
   end
 
   create_table "costumers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,8 +32,6 @@ ActiveRecord::Schema.define(version: 2019_10_09_155651) do
     t.string "streetNo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "billing_id"
-    t.index ["billing_id"], name: "index_costumers_on_billing_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,5 +47,5 @@ ActiveRecord::Schema.define(version: 2019_10_09_155651) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "costumers", "billings"
+  add_foreign_key "billings", "costumers", column: "costumers_id"
 end
