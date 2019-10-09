@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_145216) do
+ActiveRecord::Schema.define(version: 2019_10_09_155651) do
+
+  create_table "billings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "number_titulo"
+    t.string "expiration_date"
+    t.string "status_pago"
+    t.string "value"
+    t.boolean "status_billing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "costumers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "contract_number"
+    t.boolean "status_spc"
+    t.string "street"
+    t.string "streetNo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "billing_id"
+    t.index ["billing_id"], name: "index_costumers_on_billing_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,4 +47,5 @@ ActiveRecord::Schema.define(version: 2019_10_09_145216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "costumers", "billings"
 end
