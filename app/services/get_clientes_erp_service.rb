@@ -10,13 +10,18 @@ class GetClientesErpService
     begin
       #get_costumer_information = Rails.application.credentials[Rails.env.to_sym][:get_costumer_info_api_url]
       #url = "#{get_costumer_information}?contra=#{@contract}"
-      url = "http://192.168.80.5/sisspc/demos/get_pacote_ftth_cplus.php?contra=#{@contract}"
+      url = "http://192.168.80.5/sisspc/demos/get_informacoes_contrato.php?contra=#{@contract}"
       res = RestClient.get url
       jsonParse = JSON.parse(res.body)
-      name = jsonParse["nome"]
+      
+      name = jsonParse["informacoes"]["nome"][0]
+      street = jsonParse["informacoes"]["rua"][0]
+      st_number = jsonParse["informacoes"]["numero"][0]
+      neighborhood = jsonParse["informacoes"]["bairro"][0]
       success = jsonParse["success"]
       
-      name[0]
+      ### SE RETORNO FOR 1 ELE FOI UM SUCESSO
+      success
     rescue RestClient::ExceptionWithResponse => e
       e.response
     end

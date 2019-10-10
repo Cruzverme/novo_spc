@@ -5,8 +5,10 @@ Rspec.configure do |config|
       'Accept'=>'*/*'
     }).to_return(status: 200, body: '
       {
-        "velocidade":["329"],
-        "nome":["GISELI DE SOUZA DA SILVA"],
+        "nome": "GISELI DE SOUZA DA SILVA",
+        "rua": "R JULIO BARCELOS ",
+        "numero": "298",
+        "bairro": "JOCKEY CLUB"
         "success":1
       }',headers: {})
   end
