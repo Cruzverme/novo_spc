@@ -1,10 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-WebMock.disable_net_connect!(allow_localhost: true)
-require File.expand_path("../../config/environment", __FILE__)
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-require 'webmock/rspec'
-
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
