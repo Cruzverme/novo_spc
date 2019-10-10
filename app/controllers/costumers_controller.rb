@@ -3,6 +3,7 @@ class CostumersController < ApplicationController
   end
 
   def index
+    @costumers = "AAAAAA"
   end
 
   def create
