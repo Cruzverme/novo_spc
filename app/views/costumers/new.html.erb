@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <%= form_tag('/costumer_informations', method: :get, id: 'costumer_form', class: 'col s12') do %>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="contract" name="contract" type="text" class="validate">
+          <label for="contract">Contract</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input readonly name="name" id="name" type="text" class="validate">
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <input readonly name="street" id="street" type="text" class="validate">
+          <label for="street">Street</label>
+        </div>
+        <div class="input-field col s2">
+          <input readonly name="street_no" id="street_no" type="text" class="validate">
+          <label for="street_no">Street Number</label>
+        </div>
+        <div class="input-field col s2">
+          <input readonly name="neighborhood" id="neighborhood" type="text" class="validate">
+          <label for="neighborhood">Neighborhood</label>
+        </div>
+
+        <div class="col s12">
+          <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Avançar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+      <% end %>      
+  </div>
+</div>
