@@ -21,6 +21,8 @@ RSpec.describe 'Costumers', type: :request do
   
   describe 'GET #costumerInformations' do
     it 'return http success' do
+      sign_in(user)
+
       get '/costumer_informations', params:{
         contract: "13258"
       }

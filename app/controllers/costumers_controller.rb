@@ -12,6 +12,11 @@ class CostumersController < ApplicationController
   def update
   end
 
+  def costumer_informations
+    informacoes = GetClientesErpService.new(params[:contract]).perform
+    render json: {"informacoes": informacoes}
+  end
+
   def destroy
   end
 end
