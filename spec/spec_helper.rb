@@ -32,11 +32,12 @@ RSpec.configure do |config|
     #     # => "be bigger than 2 and smaller than 4"
     # ...rather than:
     #     # => "be bigger than 2"
-    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true    
     config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::Test::ControllerHelpers, type: :controller
     config.include Warden::Test::Helpers, type: :request
     config.include Warden::Test::Helpers, type: :system
+    config.include Warden::Test::Helpers, type: :controller
     config.include ControllerHelpers, :type => :controller
   end
 
