@@ -17,6 +17,10 @@ class CostumersController < ApplicationController
     render json: {"informacoes": informacoes}
   end
 
+  def get_costumer_billing
+    
+  end
+
   def destroy
   end
 end
