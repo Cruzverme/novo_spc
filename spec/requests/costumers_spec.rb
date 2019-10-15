@@ -10,10 +10,12 @@ RSpec.describe 'Costumers', type: :request do
 
   let!(:user) { create(:user, email: email, password: password) }
   
+  before(:each) do 
+    sign_in(user)
+  end
+
   describe 'GET #index' do
     it 'returns http success' do
-      sign_in(user)
-
       get '/costumers'
       expect(response).to have_http_status(200)
     end
@@ -21,8 +23,6 @@ RSpec.describe 'Costumers', type: :request do
   
   describe 'GET #costumerInformations' do
     it 'return http success' do
-      sign_in(user)
-
       get '/costumer_informations', params:{
         contract: "13258"
       }
