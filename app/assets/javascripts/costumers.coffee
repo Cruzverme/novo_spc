@@ -17,16 +17,8 @@ $(document).ready ->
         $('#neighborhood').val(data['informacoes'][3])
     return false;
 
-  # $('.btn_destroy_costumer').click ->
-  #   $.ajax '/costumers/' + $("#costumer_id").val(),
-  #     type: 'DELETE',
-  #     dataType: 'json',
-  #     data: {
-  #             costumer_id: $("#costumer_id").val(),
-  #           }
-  #     error: (jqXHR, textStatus, errorThrown) ->
-  #       alert textStatus
-  #     success: (data, text, jqXHR) ->
-  #       alert("APAGADO!")
+  $('.btn_new_billing').click ->
+    id = $("#costumer_id").val()
+    url = "/billings/new?costumer=#{id}"
+    window.location.href = url
 
-  #   return false;
