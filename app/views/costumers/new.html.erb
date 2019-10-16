@@ -1,8 +1,9 @@
 <div class="container">
+  
   <div class="row contract">
     <div class="input-field col s8">
-      <input id="contract" name="contract" type="number" class="validate">
-      <label for="contract">Contract</label>
+      <input id="contract_view" name="contract_view" type="number" class="validate">
+      <label for="contract_view">Contract</label>
     </div>
     <div class="input-field col s4">
       <button class="btn waves-effect waves-light btn_exibir_dados">Mostrar Dados</button>
@@ -10,8 +11,8 @@
   </div>
 
   <div class="row div_form_costumer" style='display: none;' >
-    <%= form_tag('#', method: :get, id: 'costumer_form', class: 'col s12') do %>
-      <input type="hidden" name="contract_h" value="" />
+    <%= form_tag("/costumers", method: :post, id: 'costumer_form', class: 'col s12') do %>
+      <input type="hidden" id="contract" name="contract" value="" />
       <div class="row">
         <div class="input-field col s12">
           <input readonly name="name" id="name" type="text" >
@@ -24,7 +25,7 @@
           <label for="street">Street</label>
         </div>
         <div class="input-field col s2">
-          <input readonly name="street_no" id="street_no" type="text" >
+          <input readonly name="streetNo" id="street_no" type="text" >
           <label for="street_no">Street Number</label>
         </div>
         <div class="input-field col s4">
@@ -33,11 +34,11 @@
         </div>
 
         <div class="col s12">
-          <button class="btn waves-effect waves-light col s6 offset-s3" type="button" name="action">Avançar
+          <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Avançar
             <i class="material-icons right">send</i>
           </button>
         </div>
       </div>
-      <% end %>      
+    <% end %>      
   </div>
 </div>

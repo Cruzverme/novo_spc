@@ -4,13 +4,13 @@ $(document).ready ->
       type: 'GET'
       dataType: 'json'
       data: {
-              contract: $("#contract").val(),
+              contract: $("#contract_view").val(),
             }
       error: (jqXHR, textStatus, errorThrown) ->
         alert textStatus
       success: (data, text, jqXHR) ->
         $(".div_form_costumer").show()
-        $('#contract_h').val(contract)
+        $('#contract').val(contract)
         $('#name').val(data['informacoes'][0])
         $('#street').val(data['informacoes'][1])
         $('#street_no').val(data['informacoes'][2])
