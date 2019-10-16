@@ -14,12 +14,21 @@
         <td><%= costumer.name %> </td>
         <td><%= costumer.street%></td>
         <td><%= costumer.streetNo%></td>
-        <td class="actions"> 
-          <button>aa</button>
+        <td class="actions">
+          
+          <%= buton_to new_billing_url, method: :new, class: 'btn-floating waves-effect waves-light btn-small btn' do %>
+            <i class="material-icons">monetization_on</i>
+          <% end %>
+          <%= link_to costumer, confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+          
+          <button class="btn_destroy_costumer">
+            <i class="material-icons">monetization_on</i>
+          </button>
         </td>
       </tr>
     <% end %>
-    
   </tbody>
 </table>
 
