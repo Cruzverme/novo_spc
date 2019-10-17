@@ -1,0 +1,43 @@
+<div class="container top-10"> 
+  <div class="row">
+    <%= form_tag("/billings", method: :post, id: 'billings_form', class: 'col s12') do %>
+      <div class="row">
+        <div class="input-field col s3">
+          <input id="contract_number" type="text" value="<%= @costumer.contract_number%>" readonly>
+          <label for="contract_number">Contract</label>
+        </div>
+        <div class="input-field col s9">
+          <input id="name" type="text" value="<%= @costumer.name %>" readonly>
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <input type="hidden" name="costumer_id" value="<%= @costumer.id %>">
+      <div class="row">
+        <div class="input-field col s3">
+          <input id="number_titulo" type="text" value="<%= @billing[0]%>" readonly>
+          <label for="number_titulo">Number Title</label>
+        </div>
+        <div class="input-field col s5">
+          <input id="expiration_date" type="text" value="<%= @billing[2]%>" readonly>
+          <label for="expiration_date">Expiration Date</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="value" type="text" value="R$ <%= @billing[1]%>" readonly>
+          <label for="value">Value</label>
+        </div>
+        <div class="input-field col s1">
+          <input id="value" type="text" value="<%= @billing[3]%>" readonly>
+          <label for="value">Pago?</label>
+        </div>
+        
+        <input type="hidden" name="status_billing" value="false">
+      </div>
+      <div class="col s12">
+        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Associar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
