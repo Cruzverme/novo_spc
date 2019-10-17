@@ -15,14 +15,13 @@
         <td><%= costumer.street%></td>
         <td><%= costumer.streetNo%></td>
         <td class="actions">
-          
-          <%= link_to costumer, confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
-            <i class="material-icons">delete</i>
-          <% end %>
-          
           <button class="btn_new_billing btn-floating waves-effect waves-light btn-small btn">
             <i class="material-icons">monetization_on</i>
           </button>
+
+          <%= link_to costumer, confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
+            <i class="material-icons">delete</i>
+          <% end %>
         </td>
       </tr>
       <input type="hidden" id="costumer_id" name="costumer_id" value=<%=costumer.id%> />
