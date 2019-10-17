@@ -15,6 +15,7 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require toastr
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
