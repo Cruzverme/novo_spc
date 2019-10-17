@@ -14,20 +14,20 @@
       <input type="hidden" name="costumer_id" value="<%= @costumer.id %>">
       <div class="row">
         <div class="input-field col s3">
-          <input id="number_titulo" type="text" value="<%= @billing[0]%>" readonly>
+          <input id="number_titulo" type="text" name="number_titulo" value="<%= @billing[0]%>" readonly>
           <label for="number_titulo">Number Title</label>
         </div>
         <div class="input-field col s5">
-          <input id="expiration_date" type="text" value="<%= @billing[2]%>" readonly>
+          <input id="expiration_date" type="text" name="expiration_date" value="<%= @billing[2]%>" readonly>
           <label for="expiration_date">Expiration Date</label>
         </div>
         <div class="input-field col s3">
-          <input id="value" type="text" value="R$ <%= @billing[1]%>" readonly>
+          <input id="value" type="text" name="value" value="R$ <%= @billing[1]%>" readonly>
           <label for="value">Value</label>
         </div>
         <div class="input-field col s1">
-          <input id="value" type="text" value="<%= @billing[3]%>" readonly>
-          <label for="value">Pago?</label>
+          <input id="status_pago" type="text" name="status_pago" value="<%= @billing[3]%>" readonly>
+          <label for="status_pago">Pago?</label>
         </div>
         
         <input type="hidden" name="status_billing" value="false">

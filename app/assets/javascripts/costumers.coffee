@@ -22,3 +22,14 @@ $(document).ready ->
     url = "/billings/new?costumer=#{id}"
     window.location.href = url
 
+$(document).on 'turbolinks:load', ->
+  $('.remove_costumer').on 'submit', (e) ->
+    $.ajax e.target.action,
+        type: 'DELETE'
+        dataType: 'json',
+        data: {}
+        success: (data, text, jqXHR) ->
+          $(location).attr('href','/costumers');
+        error: (jqXHR, textStatus, errorThrown) ->
+          M.toast({html:'Problema na remoção da Campanha', classes: 'red', 4000})
+    return false
