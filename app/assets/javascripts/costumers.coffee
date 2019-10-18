@@ -22,6 +22,12 @@ $(document).ready ->
     url = "/billings/new?costumer=#{id}"
     window.location.href = url
 
+  $('.btn_show_billing').click ->
+    id = $("#costumer_id").val()
+    url = "/costumers/#{id}"
+    window.location.href = url
+
+
 $(document).on 'turbolinks:load', ->
   $('.remove_costumer').on 'submit', (e) ->
     $.ajax e.target.action,

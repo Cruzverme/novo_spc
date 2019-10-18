@@ -1,2 +1,31 @@
-<h1>Costumers#show</h1>
-<p>Find me in app/views/costumers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12"> 
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <% if @costumer.billings.exists? %>
+            <span class="card-title"><%= @costumer.name %></span>
+            <% @costumer.billings.each do |billing|%>
+              <p><span>Valor Boleto Pendente: </span> <%= billing.value %></p>
+              <p><span>Data Vencimento Boleto Pendente: </span> <%= billing.expiration_date %></p>
+              <p><span>Boleto de título <%= billing.number_titulo%> se encontra </span> 
+                <% if !billing.status_billing %>
+                  Pendente
+                <% else %>
+                  Pago
+                <% end %>
+              </p>
+              <hr>
+            <% end %>
+          <% else %>
+            <span class="card-title"><%= @costumer.name %></span>
+            <input type="hidden" id="costumer_id" name="costumer_id" value=<%=@costumer.id%> />
+            <p>Está sem boletos pendentes, clique <span class="btn_new_billing">AQUI</span> para associar o boleto de maior tempo em aberto</p>
+          <% end %>
+        </div>
+        <!-- <div class="card-action">
+        </div> -->
+      </div>
+    </div>  
+  </div>
+</div>
