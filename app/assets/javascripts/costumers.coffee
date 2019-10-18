@@ -18,13 +18,14 @@ $(document).ready ->
     return false;
 
   $('.btn_new_billing').click ->
-    id = $("#costumer_id").val()
+    id = $(this).data('idnew')
     url = "/billings/new?costumer=#{id}"
     window.location.href = url
 
   $('.btn_show_billing').click ->
-    id = $("#costumer_id").val()
+    id = $(this).data('idshow')
     url = "/costumers/#{id}"
+    console.log(url)
     window.location.href = url
 
 
