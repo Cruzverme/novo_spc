@@ -14,7 +14,7 @@ class CostumersController < ApplicationController
 
     respond_to do |format|
       if(@costumer.save)
-        format.html { redirect_to "/costumers", notice: 'Costumer was successfully created.'}
+        format.html { redirect_to "/costumers", flash: { success: 'Costumer was successfully created.'}}
         format.json { render "/costumers", status: :created, location: @costumer }
       else
         format.html { render :new}
@@ -33,7 +33,7 @@ class CostumersController < ApplicationController
   def destroy
     @costumer.destroy
     respond_to do |format|
-      format.html { redirect_to '/costumers', notice: 'Costumer was successfully destroyed.' }
+      format.html { redirect_to '/costumers', flash: { success: 'Costumer was successfully destroyed.' }}
       format.json { head :no_content }
     end
   end
@@ -45,6 +45,4 @@ class CostumersController < ApplicationController
     def costumer_params
       params.permit(:name,:street,:streetNo,:contract_number,:status_spc)
     end
-
-
 end
