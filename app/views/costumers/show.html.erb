@@ -19,8 +19,8 @@
             <% end %>
           <% else %>
             <span class="card-title"><%= @costumer.name %></span>
-            <input type="hidden" id="costumer_id" name="costumer_id" value=<%=@costumer.id%> />
-            <p>Está sem boletos pendentes, clique <span class="btn_new_billing">AQUI</span> para associar o boleto de maior tempo em aberto</p>
+            <input type="hidden" id="costumer_id" name="costumer_id" value="<%=@costumer.id%>" />
+            <p>Está sem boletos pendentes, clique <span class="btn_new_billing" data-idnew="<%= @costumer.id %>" >AQUI</span> para associar o boleto de maior tempo em aberto</p>
           <% end %>
         </div>
         <!-- <div class="card-action">
