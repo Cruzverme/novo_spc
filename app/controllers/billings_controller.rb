@@ -6,6 +6,11 @@ class BillingsController < ApplicationController
   def new
     @costumer = Costumer.find_by_id(params[:costumer])
     @billing = GetBillingCostumerService.new(@costumer.contract_number).perform
+
+    if !@billing.is_a? Array
+      redirect_to '/costumers', flash: { error: 'O Contrato informado não contém faturas vencidas!' }
+    end
+
   end
 
   def create
@@ -13,7 +18,7 @@ class BillingsController < ApplicationController
 
     respond_to do |format|
       if @billing.save
-        format.html { redirect_to '/costumers', flash: {success: "Boleto #{@billing.number_titulo}  was successfully created."} }
+        format.html { redirect_to '/costumers', flash: {success: "Boleto #{@billing.number_titulo}  was successfully associated."} }
         format.json { render '/costumers', status: :created, location: @billing }
       else
         format.html { render :new }
