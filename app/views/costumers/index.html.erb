@@ -5,16 +5,18 @@
         <th>Name</th>
         <th>Street</th>
         <th>Street Number</th>
+        <th>Paied?</th>
         <th>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @costumers.each do |costumer| %>
-        <tr>
+        <tr class="linha_cliente_<%= costumer.contract_number%>">
           <td><%= costumer.name %> </td>
           <td><%= costumer.street %></td>
           <td><%= costumer.streetNo %></td>
+          <td><%= costumer.billings.last.status_pago%>
           <td class="actions">
             <button class="btn_show_billing btn-floating waves-effect waves-light btn-small btn green" data-idshow="<%=costumer.id%>">
               <i class="material-icons">remove_red_eye</i>
@@ -22,7 +24,9 @@
 
             <button class='btn_new_billing btn-floating waves-effect waves-light btn-small btn' data-idnew='<%= costumer.id %>' 
               <% if costumer.billings.exists? %> 
+                style = "display:none"
                 disabled 
+                
               <% end %>
             >
               <i class="material-icons">monetization_on</i>

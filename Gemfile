@@ -43,6 +43,8 @@ gem 'material_icons'
 gem 'redis'
 gem 'toastr-rails'
 
+# Agendador
+gem 'whenever'
 
 #rest API gem
 gem 'rest-client'
