@@ -16,7 +16,11 @@
           <td><%= costumer.name %> </td>
           <td><%= costumer.street %></td>
           <td><%= costumer.streetNo %></td>
-          <td><%= costumer.billings.last.status_pago%>
+          <% if costumer.billings.exists? %>
+            <td><%= costumer.billings.last.status_pago%>
+          <% else %>
+            <td> ----- </td>
+          <% end %>
           <td class="actions">
             <button class="btn_show_billing btn-floating waves-effect waves-light btn-small btn green" data-idshow="<%=costumer.id%>">
               <i class="material-icons">remove_red_eye</i>
