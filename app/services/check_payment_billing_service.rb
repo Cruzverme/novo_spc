@@ -20,13 +20,15 @@ class CheckPaymentBillingService
       @title_number = costumer.billings.find_by_number_titulo(costumer.billings.last.number_titulo)
 
       if success != 0
-        costumer.status_spc = false
+        costumer.status_spc = true
         @title_number.status_pago = json_parse['0'][0]
         @title_number.status_billing = true
-        @title_number.save
       elsif success != 1
-        costumer.status_spc = true
+        costumer.status_spc = false
+        @title_number.status_pago = json_parse['0'][0] if @title_number.status_pago != json_parse['0'][0]
+        @title_number.status_billing = false
       end
+      @title_number.save
       costumer.save
     end
 
