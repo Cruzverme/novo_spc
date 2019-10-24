@@ -2,6 +2,6 @@
 
 set :output, './log/cron_whenever.log'
 
-every 1.minute do
+every 5.minute do
   runner 'Costumer.checkPayment'
 end
