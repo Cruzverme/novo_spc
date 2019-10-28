@@ -9,13 +9,16 @@ $(document).ready ->
       error: (jqXHR, textStatus, errorThrown) ->
         alert textStatus
       success: (data, text, jqXHR) ->
-        console.log('aaaaa')
-        $(".div_form_costumer").show()
-        $('#name').val(data['informacoes'][0])
-        $('#street').val(data['informacoes'][1])
-        $('#contract').val($("#contract_view").val())
-        $('#street_no').val(data['informacoes'][2])
-        $('#neighborhood').val(data['informacoes'][3])
+
+        if data['informacoes'][0] != undefined
+          $(".div_form_costumer").show()
+          $('#name').val(data['informacoes'][0])
+          $('#street').val(data['informacoes'][1])
+          $('#contract').val($("#contract_view").val())
+          $('#street_no').val(data['informacoes'][2])
+          $('#neighborhood').val(data['informacoes'][3])
+        else
+          toastr.info('Contrato não pode ser em branco!')
     return false;
 
   $('.btn_new_billing').click ->

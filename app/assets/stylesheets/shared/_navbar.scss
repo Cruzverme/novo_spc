@@ -1,10 +1,17 @@
 nav{
-  background-color: #e86252;
-
+  background-color: #333333;
+  
   .brand-logo{
     margin-left: 10px;
     .logo-title{
       font-size: 20px;
+      color:#f39c34;
     }
   }
+
+  
+  ul a{
+    color: #f39c34;
+  }
+  
 }

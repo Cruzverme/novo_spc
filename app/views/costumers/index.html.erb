@@ -1,5 +1,5 @@
 <div class="container">
-  <table id="spcTable" class="tablesorter  bordered centered responsive-table tabelaSPC">
+  <table id="spcTable" class=" bordered striped centered responsive-table tabelaSPC">
     <thead>
       <tr>
         <th>Contract</th>
@@ -32,7 +32,7 @@
               <i class="material-icons">monetization_on</i>
             </button>
 
-            <%= link_to costumer, confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
+            <%= link_to costumer, :data => {confirm: 'Are you sure?', disable_with: 'deleting...'}, method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
               <i class="material-icons">delete</i>
             <% end %>
           </td>
@@ -49,7 +49,7 @@
 
 <div class="fixed-action-btn costumer-btn">
   <%= form_tag("costumers/new", method: "get") do %>
-    <button class="btn-floating pulse btn-large waves-effect waves-light red">
+    <button class="btn-floating orange pulse btn-large waves-effect waves-orange addBill">
       <i class="material-icons">add</i>
     </button>
   <%end%>

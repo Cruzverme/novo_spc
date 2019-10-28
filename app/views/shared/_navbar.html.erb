@@ -2,7 +2,7 @@
   <nav class="top-nav">
     <div class="nav-wrapper col s12">
       <a href="/" class="brand-logo">
-        <img src="#" alt="" class="logo-img">
+        <%= image_tag 'logo.png', size: "100x20", alt: "Logo VerTV", class: 'logo-img' %>
         <span class="logo-title">
           Consulta SPC
         </span>
@@ -28,11 +28,12 @@
   </nav>
 </div>
 
-
+<!-- Abaixo é para Mobile -->
 <ul class="side-nav" id="side-bar">
   <% if current_user %>
     <li><a href="/costumers">Clientes</a></li>
     <% if current_user.admin? %>
+      <li><div class="divider"></div></li>
       <li><a href=<%=  new_user_registration_path %>>Criar Conta</a></li>
     <% end %>
     <li><a href="/users/edit">Seu Perfil</a></li>
@@ -40,8 +41,6 @@
     <li>  <%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
   <% else %>
     <li><a href="/users/sign_in">Entrar</a></li>
-    <li><div class="divider"></div></li>
-    <li><a href="/users/sign_up">Criar Conta</a></li>
     <li><div class="divider"></div></li>
   <% end %>
 </ul>
