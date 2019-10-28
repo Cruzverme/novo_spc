@@ -16,6 +16,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require toastr
+//= require jquery-tablesorter
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .

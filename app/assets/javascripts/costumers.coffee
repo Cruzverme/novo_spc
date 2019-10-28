@@ -9,6 +9,7 @@ $(document).ready ->
       error: (jqXHR, textStatus, errorThrown) ->
         alert textStatus
       success: (data, text, jqXHR) ->
+        console.log('aaaaa')
         $(".div_form_costumer").show()
         $('#name').val(data['informacoes'][0])
         $('#street').val(data['informacoes'][1])
@@ -27,7 +28,6 @@ $(document).ready ->
     url = "/costumers/#{id}"
     console.log(url)
     window.location.href = url
-
 
 $(document).on 'turbolinks:load', ->
   $('.remove_costumer').on 'submit', (e) ->

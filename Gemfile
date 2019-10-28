@@ -39,9 +39,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'devise'
 gem 'materialize-sass', '~> 0.99.0'
+gem 'will_paginate-materialize', git: 'https://github.com/mldoscar/will_paginate-materialize', branch: 'master'
 gem 'material_icons'
 gem 'redis'
 gem 'toastr-rails'
+gem 'jquery-tablesorter'
 
 # Agendador
 gem 'whenever'

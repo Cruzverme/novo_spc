@@ -1,7 +1,8 @@
 <div class="container">
-  <table class="striped highlight centered responsive-table">
+  <table id="spcTable" class="tablesorter  bordered centered responsive-table tabelaSPC">
     <thead>
       <tr>
+        <th>Contract</th>
         <th>Name</th>
         <th>Street</th>
         <th>Street Number</th>
@@ -10,14 +11,15 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id='bodyTable'>
       <% @costumers.each do |costumer| %>
-        <tr class="linha_cliente_<%= costumer.contract_number%>">
+        <tr class="linha_cliente_<%= costumer.billings.last.status_pago if costumer.billings.exists? %>" <%= cor_de_pagamento(costumer.billings.last.status_pago) if costumer.billings.exists? %>>
+          <td><%= costumer.contract_number %></td>
           <td><%= costumer.name %> </td>
           <td><%= costumer.street %></td>
           <td><%= costumer.streetNo %></td>
           <% if costumer.billings.exists? %>
-            <td><%= costumer.billings.last.status_pago%>
+            <td><%= costumer.billings.last.status_pago %>
           <% else %>
             <td> ----- </td>
           <% end %>
@@ -26,13 +28,7 @@
               <i class="material-icons">remove_red_eye</i>
             </button>
 
-            <button class='btn_new_billing btn-floating waves-effect waves-light btn-small btn' data-idnew='<%= costumer.id %>' 
-              <% if costumer.billings.exists? %> 
-                style = "display:none"
-                disabled 
-                
-              <% end %>
-            >
+            <button class='btn_new_billing btn-floating waves-effect waves-light btn-small btn' data-idnew='<%= costumer.id %>' <%= check_billing(costumer.billings) if costumer.billings.exists? %>>
               <i class="material-icons">monetization_on</i>
             </button>
 
@@ -44,8 +40,11 @@
         <input type="hidden" id="costumer_id" name="costumer_id" value=<%=costumer.id%> />
       <% end %>
     </tbody>
-    
   </table>
+  <div class="col-md-12 center text-center">
+    <span class="left" id="total_reg"></span>
+    <ul class="pagination pager" id="myPager"></ul>
+  </div>
 </div>
 
 <div class="fixed-action-btn costumer-btn">
