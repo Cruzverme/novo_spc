@@ -1,0 +1,29 @@
+<div class="container">
+  <table id="userTable" class=" bordered striped centered responsive-table tabelaMarginTop">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user|%>
+        <tr>
+          <td><%= user.name%></td>
+          <td><%= user.email%></td>
+          <td>
+            <%= link_to edit_user_url(user), method: :get, class: 'btn-floating btn waves-effect waves-light' do %>
+              <i class="material-icons">edit</i>>
+            <%end%>
+
+            <%= link_to '/users/' , :data => {confirm: 'Are you sure?', disable_with: 'deleting...'}, method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
+              <i class="material-icons">delete</i>
+            <% end %>
+          
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
