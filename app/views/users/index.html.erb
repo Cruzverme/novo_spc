@@ -17,7 +17,7 @@
               <i class="material-icons">edit</i>>
             <%end%>
 
-            <%= link_to '/users/' , :data => {confirm: 'Are you sure?', disable_with: 'deleting...'}, method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
+            <%= link_to "/users/#{user.id}" , :data => {confirm: 'Are you sure?', disable_with: 'deleting...'}, method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
               <i class="material-icons">delete</i>
             <% end %>
           

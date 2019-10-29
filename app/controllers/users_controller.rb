@@ -38,9 +38,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "Successfully deleted User."
+      redirect_to users_path
+    end
+  end 
+
   private 
 
   def user_params
-    params.require(:user).permit(:email, :password, :name, :password_confirmation)
+    params.require(:user).permit(:email, :password, :name, :password_confirmation, :admin)
   end
 end

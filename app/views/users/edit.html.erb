@@ -16,6 +16,11 @@
   </div>
 
   <div class="field">
+    <%= f.check_box :admin %>
+    <%= f.label :admin %>
+  </div>  
+
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
@@ -29,7 +34,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  
 
   <div class="actions">
     <button class="btn waves-effect waves-light" type="submit" name="action">Update
