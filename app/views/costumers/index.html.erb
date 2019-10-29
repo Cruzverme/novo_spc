@@ -2,12 +2,12 @@
   <table id="spcTable" class=" bordered striped centered responsive-table tabelaSPC">
     <thead>
       <tr>
-        <th>Contract</th>
-        <th>Name</th>
-        <th>Street</th>
-        <th>Street Number</th>
-        <th>Paied?</th>
-        <th>Actions</th>
+        <th><%= t('form_costumer.contrat') %></th>
+        <th><%= t('form_costumer.name') %></th>
+        <th><%= t('form_costumer.street') %></th>
+        <th><%= t('form_costumer.st_number') %></th>
+        <th><%= t('form_costumer.paied') %></th>
+        <th><%= t('form_costumer.actions') %></th>
       </tr>
     </thead>
 
@@ -32,7 +32,7 @@
               <i class="material-icons">monetization_on</i>
             </button>
 
-            <%= link_to costumer, :data => {confirm: 'Are you sure?', disable_with: 'deleting...'}, method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
+            <%= link_to costumer, :data => {confirm: t('forms.confirm'), disable_with: 'deleting...'}, method: :delete, class: 'btn-floating btn waves-effect waves-light red' do %>
               <i class="material-icons">delete</i>
             <% end %>
           </td>

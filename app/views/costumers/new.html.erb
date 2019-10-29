@@ -3,7 +3,7 @@
   <div class="row contract">
     <div class="input-field col s8">
       <input id="contract_view" name="contract_view" type="number" class="validate">
-      <label for="contract_view">Contract</label>
+      <label for="contract_view"><%= t('form_costumer.contrat') %></label>
     </div>
     <div class="input-field col s4">
       <button class=" waves-effect waves-light btn_exibir_dados btn">Mostrar Dados</button>
@@ -16,25 +16,25 @@
       <div class="row">
         <div class="input-field col s12">
           <input readonly name="name" id="name" type="text" >
-          <label for="name">Name</label>
+          <label for="name"><%= t('form_costumer.name') %></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
           <input readonly name="street" id="street" type="text" >
-          <label for="street">Street</label>
+          <label for="street"><%= t('form_costumer.street') %></label>
         </div>
         <div class="input-field col s2">
           <input readonly name="streetNo" id="street_no" type="text" >
-          <label for="street_no">Street Number</label>
+          <label for="street_no"><%= t('form_costumer.st_number') %></label>
         </div>
         <div class="input-field col s4">
           <input readonly name="neighborhood" id="neighborhood" type="text" >
-          <label for="neighborhood">Neighborhood</label>
+          <label for="neighborhood"><%= t('form_costumer.neighborhood') %></label>
         </div>
 
         <div class="col s12">
-          <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Avançar
+          <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action"><%= t('forms.conclude') %>
             <i class="material-icons right">send</i>
           </button>
         </div>
