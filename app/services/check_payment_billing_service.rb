@@ -29,6 +29,7 @@ class CheckPaymentBillingService
         costumer.status_spc = true
         if @title_number.status_pago != json_parse['0'][0]
           @title_number.status_pago = json_parse['0'][0]
+        end
         @title_number.status_billing = false
       end
       @title_number.save
