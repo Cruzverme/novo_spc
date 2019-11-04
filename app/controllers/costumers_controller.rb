@@ -3,7 +3,7 @@ class CostumersController < ApplicationController
   before_action :set_costumer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @costumers = Costumer.all
+    @costumers = Costumer.all.order('status_spc')
   end
 
   def show
